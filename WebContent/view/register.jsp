@@ -32,14 +32,14 @@
 			</div>
 			<div class="loginContainer">
 				<label for="firstname"> <b>First name</b>
-				</label> <input class="loginInput" type="text" name="email"
-					placeholder="Enter your email" size="30" /> <label for="lastname">
+				</label> <input class="loginInput" type="text" name="firstname"
+					placeholder="Enter your first name" size="30" /> <label for="lastname">
 					<b>Last name</b>
-				</label> <input class="loginInput" type="text" name="email"
-					placeholder="Enter your email" size="30" /> <label for="username">
+				</label> <input class="loginInput" type="text" name="lastname"
+					placeholder="Enter your last name" size="30" /> <label for="username">
 					<b>Username</b>
-				</label> <input class="loginInput" type="text" name="email"
-					placeholder="Enter your email" size="30" /> <label for="password">
+				</label> <input class="loginInput" type="text" name="username"
+					placeholder="Enter your username" size="30" /> <label for="password">
 					<b>Password</b>
 				</label> <input class="loginInput" type="password" name="password"
 					placeholder="Enter Password" size="30" /> <label for="email">

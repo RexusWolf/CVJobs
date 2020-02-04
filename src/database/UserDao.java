@@ -10,7 +10,7 @@ import model.User;
 public class UserDao {
 	public int registerUser(User user) throws ClassNotFoundException {
         String INSERT_USERS_SQL = "INSERT INTO users" +
-            "  (id, first_name, last_name, username, password, email) VALUES " +
+            "  (id, firstname, lastname, username, password, email) VALUES " +
             " (?, ?, ?, ?, ?, ?);";
 
         int result = 0;

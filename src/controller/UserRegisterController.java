@@ -22,15 +22,15 @@ public class UserRegisterController extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
+		String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
 
         User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
+        user.setFirstName(firstname);
+        user.setLastName(lastname);
         user.setUsername(username);
         user.setPassword(password);
         user.setEmail(email);
