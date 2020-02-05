@@ -34,6 +34,14 @@
   text-align: justify;
 }
 
+.center {
+  text-align:center;
+}
+
+.scrolling {
+  scrolling: yes;
+}
+
 .navbar-ul {
   list-style-type: none;
   margin: 0;

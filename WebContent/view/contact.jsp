@@ -50,14 +50,14 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
 
-      <div class="contact-contact_box" scrolling="yes">
+      <div class="contact-contact_box scrolling">
         <!-- JAVASCRIPT -->
       </div>
     </div>
 
     <div class="contact-column contact-chatcontainer">
       <div class="contact-container_chat">
-        <div class="contact-chat_box" scrolling="yes">
+        <div class="contact-chat_box scrolling">
           <!-- JAVASCRIPT -->
         </div>
         <div id="registerInput">

@@ -34,9 +34,9 @@ pageEncoding="UTF-8"%>
     <div class="profileRow">
       <div class="profileBiographyColumn profileColumn leftProfileColumn">
         <img class="avatarProfile" src="../img/img_avatar.png" />
-        <center>
-          <h2>BiografÃ­a</h2>
-        </center>
+
+          <h2 class="center">BiografÃ­a</h2>
+
         <p class="profileMarginText justified">
           My name is Francis Molina, and I am a survivor. For weeks I daydreamed
           of my familyâs vacation to Thailand. That vacation was a much needed
@@ -53,11 +53,9 @@ pageEncoding="UTF-8"%>
       </div>
       <div class="profileColumn centerProfileColumn">
         <div class="profilePersonalInfo">
-          <center>
-            <h2 class="profileMarginText">Fco. Javier Molina Prieto</h2>
-            <h3 class="profileMarginText">UX Designer in Audiense Dev</h3>
-            <h5 class="profileMarginText">CÃ³rdoba y alrededores, EspaÃ±a</h5>
-          </center>
+            <h2 class="profileMarginText center">Fco. Javier Molina Prieto</h2>
+            <h3 class="profileMarginText center">UX Designer in Audiense Dev</h3>
+            <h5 class="profileMarginText center">CÃ³rdoba y alrededores, EspaÃ±a</h5>
         </div>
         <div class="profileProfessionalInfo">
           <div class="profileProInfoDiv">
