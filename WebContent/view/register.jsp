@@ -28,7 +28,7 @@ pageEncoding="UTF-8"%>
       <form
         id="loginForm"
         class="loginForm loginColumn loginRightColumn"
-        action="login"
+        action="/CVJobs/registerUser"
         method="post"
       >
         <div class="loginImgContainer">
