@@ -29,7 +29,11 @@ pageEncoding="UTF-8"%>
       <form
         id="loginForm"
         class="loginForm loginColumn loginRightColumn"
+<<<<<<< HEAD
         action="<%= request.getContextPath() %>/registerUser"
+=======
+        action="/CVJobs/registerUser"
+>>>>>>> e86f26403efdbcd41414ffd835770fc8a918b884
         method="post"
       >
         <div class="loginImgContainer">

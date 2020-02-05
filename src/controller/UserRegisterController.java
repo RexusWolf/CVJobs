@@ -20,6 +20,10 @@ public class UserRegisterController extends HttpServlet {
     public void init() {
         userDao = new UserDao();
     }
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	response.sendRedirect("./view/register.jsp");
+    }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstname = request.getParameter("firstname");
