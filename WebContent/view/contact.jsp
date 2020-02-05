@@ -1,30 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CVJobs</title>
+    <!-- CSS files -->
+    <link href="../css/style.css" rel="stylesheet" />
+    <!-- Google font file -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CVJobs</title>
-  <!-- CSS files -->
-  <link href="../css/style.css" rel="stylesheet" />
-  <!-- Google font file -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap" rel="stylesheet" />
-</head>
-
-<body class="cv-body">
-  <ul class="navbar-ul">
-    <li class="navbar-li"><a class="navbar-a" href="./forum.jsp">Forum</a></li>
-    <li class="navbar-li"><a class="navbar-a" href="./userProfile.jsp">Profile</a></li>
-    <li class="navbar-li"><a class="active navbar-a" href="./contact.jsp">Contacts</a></li>
-    <li class="navbar-li"><a class="navbar-a" href="./browser.jsp">Search</a></li>
-  </ul>
+  <body class="cv-body">
+    <ul class="navbar-ul">
+      <li class="navbar-li">
+        <a class="navbar-a" href="./forum.jsp">Forum</a>
+      </li>
+      <li class="navbar-li">
+        <a class="navbar-a" href="./userProfile.jsp">Profile</a>
+      </li>
+      <li class="navbar-li">
+        <a class="active navbar-a" href="./contact.jsp">Contacts</a>
+      </li>
+      <li class="navbar-li">
+        <a class="navbar-a" href="./browser.jsp">Search</a>
+      </li>
+    </ul>
     <div class="contact-column contact-contactcontainer">
       <div id="registerInput">
         <div class="contact-container_contact">
-          <input class="contact-input" type="text" placeholder="Search a contact" name="contact" required />
-          <button class="cv-primaryButton contact-button" id="registerButton" type="submit">SEARCH</button>
+          <input
+            class="contact-input"
+            type="text"
+            placeholder="Search a contact"
+            name="contact"
+            required
+          />
+          <button
+            class="cv-primaryButton contact-button"
+            id="registerButton"
+            type="submit"
+          >
+            SEARCH
+          </button>
         </div>
       </div>
 
@@ -39,13 +61,23 @@
           <!-- JAVASCRIPT -->
         </div>
         <div id="registerInput">
-          <input class="contact-input" type="text" placeholder="Type a message" name="message" required />
-          <button class="cv-primaryButton contact-button" id="registerButton" type="submit">ENTER</button>
+          <input
+            class="contact-input"
+            type="text"
+            placeholder="Type a message"
+            name="message"
+            required
+          />
+          <button
+            class="cv-primaryButton contact-button"
+            id="registerButton"
+            type="submit"
+          >
+            ENTER
+          </button>
         </div>
       </div>
     </div>
-  </div>
-  <script type="text/javascript" src="../js/contact.js"></script>
-</body>
-
+    <script type="text/javascript" src="../js/contact.js"></script>
+  </body>
 </html>
