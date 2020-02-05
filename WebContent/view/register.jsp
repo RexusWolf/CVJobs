@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,9 +41,9 @@ pageEncoding="UTF-8"%>
             </label>
             <input
               class="loginInput"
-              type="text"
+              type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Enter your email"con
               size="30"
             />
           </div>
