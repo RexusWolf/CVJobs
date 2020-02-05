@@ -42,7 +42,6 @@ public class UserRegisterController extends HttpServlet {
         try {
             userDao.registerUser(user);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
