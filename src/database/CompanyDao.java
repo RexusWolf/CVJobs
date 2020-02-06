@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 import model.Company;
 
 public class CompanyDao {
@@ -70,6 +71,7 @@ public class CompanyDao {
 		return null;
 	}
 	
+
 	private Connection getConnection() {
 		Connection connection = null;
 		
@@ -82,6 +84,7 @@ public class CompanyDao {
 		
 		return connection;
 	}
+
 	
 	private Company getCompanyFromResultSet(ResultSet resultset) {
 		try {
@@ -95,4 +98,5 @@ public class CompanyDao {
 		}
 		return null;
 	}
+
 }
