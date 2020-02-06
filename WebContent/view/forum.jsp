@@ -66,7 +66,8 @@
     <div class="forum-publications">
       <% if(posts.size() > 0) { %>
       	<% for(int i = 0; i < posts.size(); i++) { %>
-		  <h3><% out.println(posts.get(i).getTitle()); %></h3>
+		  <h2><% out.println(posts.get(i).getTitle()); %></h2>
+		  <h3>by <% out.println(posts.get(i).getAuthor()); %></h3>
 		  <p><% out.println(posts.get(i).getContent()); %></p>
        	<% } %>
       <% } %>

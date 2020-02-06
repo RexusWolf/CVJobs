@@ -79,7 +79,7 @@ public class User implements Serializable {
     }
 
     public String getFullName() {
-    	return this.firstName + this.lastName;
+    	return this.firstName + " " + this.lastName;
     }
     
 	public boolean checkPassword(String password) {

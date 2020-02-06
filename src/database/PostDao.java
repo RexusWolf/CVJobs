@@ -14,8 +14,8 @@ public class PostDao {
 		Connection connection;
 		Statement statement;
 		String query = String.format(
-						"INSERT INTO posts (id, user_id, title, content) VALUES ('%s', '%s', '%s', '%s')",
-						post.getId(), post.getUserId(), post.getTitle(), post.getContent());
+						"INSERT INTO posts (id, user_id, author, title, content) VALUES ('%s', '%s', '%s', '%s', '%s')",
+						post.getId(), post.getUserId(), post.getAuthor(), post.getTitle(), post.getContent());
 		try {
 			connection = getConnection();
 			statement = connection.createStatement();
@@ -67,6 +67,7 @@ public class PostDao {
 			post.setTitle(resultSet.getString("title"));
 			post.setContent(resultSet.getString("content"));
 			post.setUserId(resultSet.getInt("user_id"));
+			post.setAuthor(resultSet.getString("author"));
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}

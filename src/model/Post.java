@@ -8,6 +8,7 @@ public class Post implements Serializable {
 	
 	private int id;
 	private int userId;
+	private String author;
 	private String title;
 	private String content;
 	
@@ -19,6 +20,12 @@ public class Post implements Serializable {
 	}
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 	public String getTitle() {
 		return title;
