@@ -24,7 +24,7 @@
   <body class="cv-body">
     <ul class="navbar-ul">
       <li class="navbar-li">
-        <a class="navbar-a" href="./forum.jsp">Forum</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/forum">Forum</a>
       </li>
       <li class="navbar-li">
         <a class="active navbar-a" href="./userProfile.jsp">Profile</a>
