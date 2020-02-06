@@ -14,7 +14,6 @@ public class CompanyDao {
 	public int Add(Company company) throws ClassNotFoundException {
 		Connection connection;
 		Statement statement;
-		ResultSet resultset;
 		String query = String.format(
 				"INSERT INTO companies (name, activity) VALUES ('%s', '%s')", 
 				company.name, company.activity);
@@ -26,7 +25,7 @@ public class CompanyDao {
         try{
         	connection = getConnection();
 			statement = connection.createStatement();
-			resultset = statement.executeQuery(query);
+			statement.executeUpdate(query);
         } catch (SQLException e) {
             printSQLException(e);
         }
