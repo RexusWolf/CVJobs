@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 
 import model.Company;
 
@@ -47,6 +49,29 @@ public class CompanyDao {
         }
     }
 
+	public ArrayList<Company> listCompanies() {
+		Connection connection;
+		Statement statement;
+		ResultSet resultset;
+		ArrayList<Company> companies = new ArrayList<Company>();
+		String query = "SELECT * FROM companies";
+		
+		try {
+			connection = getConnection();
+			statement = connection.createStatement();
+			resultset = statement.executeQuery(query);
+			
+			while(resultset.next()) {
+				companies.add(getCompanyFromResultSet(resultset));
+			}
+			return companies;
+		} catch(Exception exception) {
+			exception.printStackTrace();
+		}
+		return null;
+	}
+	
+
 	private Connection getConnection() {
 		Connection connection = null;
 		
@@ -59,4 +84,19 @@ public class CompanyDao {
 		
 		return connection;
 	}
+
+	
+	private Company getCompanyFromResultSet(ResultSet resultset) {
+		try {
+			Company company = new Company(
+					resultset.getString("name"),
+					resultset.getString("activity")
+					);
+			return company;
+		} catch(Exception exception) {
+			exception.printStackTrace();
+		}
+		return null;
+	}
+
 }
