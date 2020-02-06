@@ -2,9 +2,11 @@
 	language="java"
 	contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
+	import="java.util.ArrayList"
 	import ="database.*"
 	import= "model.*"%>
-<%User user = (User)session.getAttribute("user");%>
+<% User user = (User)session.getAttribute("user"); %>
+<% ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("posts"); %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,32 +64,12 @@
     </form>
 
     <div class="forum-publications">
-      <!-- jsp: for publication in publications -->
-      <h3>Publication Title</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur libero
-        laborum qui tempore velit earum neque aliquid laudantium voluptatum.
-        Voluptatum voluptates laudantium officia fugit obcaecati repellat
-        voluptas eum, ipsum hic assumenda eveniet eligendi voluptatibus tempore
-        quae, sint illo suscipit, dicta officiis quas quibusdam at qui totam sit
-        soluta. Deserunt deleniti sequi rem officia unde vero laborum aut optio.
-        Nulla maxime dolorem veritatis repellendus necessitatibus eum at
-        repudiandae, ipsum deleniti eaque assumenda iure consequuntur odio
-        quisquam dolores adipisci animi soluta explicabo.
-      </p>
-      <h3>Publication Title</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur libero
-        laborum qui tempore velit earum neque aliquid laudantium voluptatum.
-        Voluptatum voluptates laudantium officia fugit obcaecati repellat
-        voluptas eum, ipsum hic assumenda eveniet eligendi voluptatibus tempore
-        quae, sint illo suscipit, dicta officiis quas quibusdam at qui totam sit
-        soluta. Deserunt deleniti sequi rem officia unde vero laborum aut optio.
-        Nulla maxime dolorem veritatis repellendus necessitatibus eum at
-        repudiandae, ipsum deleniti eaque assumenda iure consequuntur odio
-        quisquam dolores adipisci animi soluta explicabo.
-      </p>
-      <!-- jsp: for ends -->
+      <% if(posts.size() > 0) { %>
+      	<% for(int i = 0; i < posts.size(); i++) { %>
+		  <h3><% out.println(posts.get(i).getTitle()); %></h3>
+		  <p><% out.println(posts.get(i).getContent()); %></p>
+       	<% } %>
+      <% } %>
     </div>
   </body>
 </html>
