@@ -88,7 +88,6 @@
               como jefe del grupo de desarrollo de la plataforma elearning SEPAD
             </p>
 
-            <p></p>
             <hr />
             <h4>Programador</h4>
             <h5>2000 - 2005</h5>
