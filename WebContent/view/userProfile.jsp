@@ -59,7 +59,7 @@
       </div>
       <div class="profileColumn centerProfileColumn">
         <div class="profilePersonalInfo">
-            <h2 class="profileMarginText center"><% out.print(user.getFirstName() + user.getLastName());%></h2>
+            <h2 class="profileMarginText center"><% out.print(user.getFirstName() + " " + user.getLastName());%></h2>
             <h3 class="profileMarginText center">UX Designer in Audiense Dev</h3>
             <h5 class="profileMarginText center">CÃ³rdoba y alrededores, EspaÃ±a</h5>
         </div>

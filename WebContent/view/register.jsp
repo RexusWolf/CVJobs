@@ -32,6 +32,7 @@ pageEncoding="UTF-8"%>
       <form
         id="loginForm"
         class="loginForm loginColumn loginRightColumn"
+        accept-charset="utf-8"
         action="${pageContext.request.contextPath}/signUp"
         method="post"
       >
