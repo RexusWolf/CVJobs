@@ -44,8 +44,6 @@ public class User implements Serializable {
     }
     
 	public boolean checkPassword(String password) {
-		System.out.println(password);
-		System.out.println(this.password);
 		if(this.password.equals(password)) {
 			return true;
 		}
