@@ -109,6 +109,7 @@ public class UserDao {
 		user.setCountry(resultset.getString("country"));
 		user.setCity(resultset.getString("city"));
 		return user;
+	}
 
 	public int updateUserBiography(String email, String biography) {
 		Connection connection;
