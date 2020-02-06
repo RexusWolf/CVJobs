@@ -20,6 +20,9 @@ public class User implements Serializable {
     public int getId() {
     	return id;
     }
+    public void setId(int id) {
+    	this.id = id;
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -75,7 +78,10 @@ public class User implements Serializable {
     	this.city = city;
     }
 
-
+    public String getFullName() {
+    	return this.firstName + " " + this.lastName;
+    }
+    
 	public boolean checkPassword(String password) {
 		if(this.password.equals(password)) {
 			return true;
