@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import model.Company;
-import model.User;
 
 public class CompanyDao {
 	public int Add(Company company) throws ClassNotFoundException {
