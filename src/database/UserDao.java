@@ -89,14 +89,25 @@ public class UserDao {
 	private User getUserFromResultSet(ResultSet resultset) {
 		User user = new User();
 		try {
-			user.setFirstName(resultset.getString("firstname"));
-			user.setLastName(resultset.getString("lastname"));
-			user.setUserName(resultset.getString("username"));
-			user.setPassword(resultset.getString("password"));
-			user.setEmail(resultset.getString("email"));
+			user = setUserData(resultset);
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
+		return user;
+	}
+
+	private User setUserData(ResultSet resultset) throws SQLException {
+		User user = new User();
+		user.setId(resultset.getInt("id"));
+		user.setFirstName(resultset.getString("firstname"));
+		user.setLastName(resultset.getString("lastname"));
+		user.setUserName(resultset.getString("username"));
+		user.setPassword(resultset.getString("password"));
+		user.setEmail(resultset.getString("email"));
+		user.setBiograpy(resultset.getString("biography"));
+		user.setGender(resultset.getString("gender"));
+		user.setCountry(resultset.getString("country"));
+		user.setCity(resultset.getString("city"));
 		return user;
 	}
 }
