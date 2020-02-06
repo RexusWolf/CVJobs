@@ -53,7 +53,7 @@ public class User implements Serializable {
     public String getBiography() {
     	return biography;
     }
-    public void setBiograpy(String biography) {
+    public void setBiography(String biography) {
     	this.biography = biography;
     }
     public String getGender() {

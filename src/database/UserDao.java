@@ -94,9 +94,29 @@ public class UserDao {
 			user.setUserName(resultset.getString("username"));
 			user.setPassword(resultset.getString("password"));
 			user.setEmail(resultset.getString("email"));
+			user.setBiography(resultset.getString("biography"));
+			user.setGender(resultset.getString("gender"));
+			user.setCountry(resultset.getString("country"));
+			user.setCity(resultset.getString("city"));
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
 		return user;
+	}
+	
+	public int updateUserBiography(String email, String biography) {
+		Connection connection;
+		Statement statement;
+		String query = String.format("UPDATE users SET biography = '%s' WHERE email = '%s'", biography, email);
+		
+		try {
+			connection = getConnection();
+			statement = connection.createStatement();
+			return statement.executeUpdate(query);
+		} catch(Exception exception) {
+			exception.printStackTrace();
+		}
+		
+		return 0;
 	}
 }
