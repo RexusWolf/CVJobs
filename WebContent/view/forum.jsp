@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"
 	import ="database.*"
 	import= "model.*"%>
-<%User user = (User)session.getAttribute("user"); %>
+<%User user = (User)session.getAttribute("user");%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,22 +36,30 @@
         <a class="navbar-a" href="./browser.jsp">Search</a>
       </li>
     </ul>
-    <div class="forum-newPublication">
-      <div class="forum-newPublicationImage">
-        <img
-          src="../img/img_avatar.png"
-          class="user-image"
-          alt="User Image"
-          height="100px"
-          width="100px"
-        />
+
+    <form action="/newPost" method="post" id="postForm">
+      <div class="forum-newPublication">
+        <div class="forum-newPublicationImage">
+          <img
+            src="../img/img_avatar.png"
+            class="user-image"
+            alt="User Image"
+            height="100px"
+            width="100px"
+          />
+        </div>
+        <div class="forum-newPublicationText">
+          <input type="text" class="inputText" placeholder="Title" />
+          <textarea
+            class="textArea"
+            form="postForm"
+            placeholder="Publication Content"
+          ></textarea>
+        </div>
+        <input type="submit" class="cv-primaryButton forum-button" value="PUBLISH"/>
       </div>
-      <div class="forum-newPublicationText">
-        <input type="text" class="title" placeholder="Title" />
-        <input type="text" class="content" placeholder="Publication Content" />
-      </div>
-      <button class="cv-primaryButton forum-button">PUBLISH</button>
-    </div>
+    </form>
+
     <div class="forum-publications">
       <!-- jsp: for publication in publications -->
       <h3>Publication Title</h3>

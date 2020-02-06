@@ -1,4 +1,4 @@
-.cv-body{
+.cv-body {
   font-family: Montserrat;
   background-image: url(../img/background.svg);
   background-repeat: repeat;
@@ -6,7 +6,7 @@
   background-color: rgba(0, 0, 0, 0.699);
 }
 
-.cv-primaryButton{
+.cv-primaryButton {
   background-color: #f61b67;
   color: white;
   border: none;
@@ -35,7 +35,7 @@
 }
 
 .center {
-  text-align:center;
+  text-align: center;
 }
 
 .scrolling {
@@ -103,7 +103,7 @@
 }
 
 .loginRow:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -228,6 +228,17 @@ span.loginForgotPassword {
   grid-template-rows: 30% 70%;
 }
 
+.inputText {
+  font-family: Montserrat;
+}
+
+.textArea {
+  font-family: Montserrat;
+  font-size: 80%;
+  padding: 1%;
+  resize: none;
+}
+
 .forum-publications {
   background-color: white;
   text-align: left;
@@ -239,7 +250,6 @@ span.loginForgotPassword {
   background-color: white;
   border-radius: 25px;
 }
-
 
 /* CONTACT STYLE */
 .contact-column {
@@ -253,7 +263,7 @@ span.loginForgotPassword {
 /* Clear floats after the columns */
 
 .contact-row:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -329,8 +339,8 @@ span.loginForgotPassword {
 
 /* Full-width inputs */
 
-.contact-input[type='text'],
-.contact-input[type='password'] {
+.contact-input[type="text"],
+.contact-input[type="password"] {
   width: 60%;
   padding: 14px 20px;
   display: inline-block;
@@ -347,8 +357,6 @@ span.loginForgotPassword {
 }
 
 /* Add a hover effect for buttons */
-
-
 
 /* Extra style for the cancel button (red) */
 
@@ -389,7 +397,7 @@ span.loginForgotPassword {
 }
 
 .browser-search:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -442,7 +450,7 @@ span.loginForgotPassword {
 }
 
 .browser-people-result:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
