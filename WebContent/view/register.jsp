@@ -32,7 +32,7 @@ pageEncoding="UTF-8"%>
       <form
         id="loginForm"
         class="loginForm loginColumn loginRightColumn"
-        action="<%= request.getContextPath() %>/registerUser"
+        action="${pageContext.request.contextPath}/signUp"
         method="post"
       >
         <div class="loginImgContainer">

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import database.UserDao;
 import model.User;
 
-@WebServlet("/registerUser")
+@WebServlet("/signUp")
 public class UserRegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -35,7 +35,7 @@ public class UserRegisterController extends HttpServlet {
         User user = new User();
         user.setFirstName(firstname);
         user.setLastName(lastname);
-        user.setUsername(username);
+        user.setUserName(username);
         user.setPassword(password);
         user.setEmail(email);
 
@@ -44,7 +44,5 @@ public class UserRegisterController extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        response.sendRedirect("./view/userSuccessfullyCreated.jsp");
 	}
 }
