@@ -191,6 +191,56 @@ span.loginForgotPassword {
   margin: 15px;
 }
 
+.profileBiographyButton {
+  width: 140px;
+  height: 40px;
+  float: right;
+  margin-top: 10px;
+}
+
+.profileBiographyInput {
+  width: 100%;
+  height: 400px;
+  text-align: left;	
+}
+
+.biographyModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+
+.biographyModal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 60px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+
+.closeButton {
+  color: #aaa;
+  float: right;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* FORUM STYLE */
 
 .forum-buttons {
