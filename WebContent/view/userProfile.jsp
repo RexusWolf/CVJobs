@@ -42,25 +42,21 @@
 				%>
 			</p>
 
-			<!-- The Modal -->
-			<div id="myModal" class="modal">
-				<!-- Modal content -->
-				<div class="modal-content">
+			<div id="biographyModal" class="biographyModal">
+				<div class="biographyModal-content">
 					<form action="${pageContext.request.contextPath}/editBiography"
-						method="post">
-						<div class="w3-section">
-							<label for="email"> <b>Email</b>
-							</label> <input class="loginInput" type="text" name="email" /> <label
-								for="biography"> <b>Biografía</b>
-							</label> <input class="loginInput" type="text" name="biography"
-								value=<%out.print(user.getBiography());%> />
+						accept-charset="utf-8" method="post">
+						<div>
+							<span class="closeButton">&times;</span> <input class="loginInput"
+								type="hidden" name="email" value=<%out.print(user.getEmail());%> />
+							<textarea class="profileBiographyInput" name="biography"><%out.print(user.getBiography());%></textarea>
 							<button class="cv-primaryButton profileBiographyButton"
 								type="submit">Guardar cambios</button>
 						</div>
 					</form>
 				</div>
 			</div>
-			<button id="edit-biography" data-target="#modalLoginForm"
+			<button id="edit-biography"
 				class="cv-primaryButton center profileBiographyButton">Edit
 				bio</button>
 

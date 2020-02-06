@@ -27,12 +27,11 @@ public class EditBiographyController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		User user = new User();
+		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
         String biography = request.getParameter("biography");
        
         try {
-        	System.out.println(email);
-        	System.out.println(biography);
         	userDao.updateUserBiography(email, biography);
         	user = userDao.getUserByEmail(email);
         } catch (Exception exception) {
