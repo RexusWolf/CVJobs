@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CVJobs - Forum</title>
     <!-- CSS files -->
-    <link href="../css/style.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
     <!-- Google font file -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap"
@@ -24,10 +24,10 @@
   <body class="cv-body">
     <ul class="navbar-ul">
       <li class="navbar-li">
-        <a class="active navbar-a" href="./forum.jsp">Forum</a>
+        <a class="active navbar-a" href="${pageContext.request.contextPath}/forum">Forum</a>
       </li>
       <li class="navbar-li">
-        <a class="navbar-a" href="./userProfile.jsp">Profile</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/view/userProfile.jsp">Profile</a>
       </li>
       <li class="navbar-li">
         <a class="navbar-a" href="./contact.jsp">Contacts</a>
@@ -37,11 +37,11 @@
       </li>
     </ul>
 
-    <form action="/newPost" method="post" id="postForm">
+    <form action="${pageContext.request.contextPath}/forum" method="post" id="postForm">
       <div class="forum-newPublication">
         <div class="forum-newPublicationImage">
           <img
-            src="../img/img_avatar.png"
+            src="${pageContext.request.contextPath}/img/img_avatar.png"
             class="user-image"
             alt="User Image"
             height="100px"
@@ -49,9 +49,10 @@
           />
         </div>
         <div class="forum-newPublicationText">
-          <input type="text" class="inputText" placeholder="Title" />
+          <input type="text" name="title" class="inputText" placeholder="Title" />
           <textarea
             class="textArea"
+            name="content"
             form="postForm"
             placeholder="Publication Content"
           ></textarea>
