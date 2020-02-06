@@ -3,15 +3,17 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import model.User;
 
 public class UserDao {
 	public int registerUser(User user) throws ClassNotFoundException {
         String INSERT_USERS_SQL = "INSERT INTO users" +
-            "  (id, firstname, lastname, username, password, email) VALUES " +
-            " (?, ?, ?, ?, ?, ?);";
+            "  (firstname, lastname, username, password, email) VALUES " +
+            " (?, ?, ?, ?, ?);";
 
         int result = 0;
 
@@ -20,21 +22,17 @@ public class UserDao {
         try (Connection connection = DriverManager
             .getConnection("jdbc:mysql://oraclepr.uco.es:3306/i72rogup?useSSL=false", "i72rogup", "practicapw");
 
-            // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {
-            preparedStatement.setInt(1, 1);
-            preparedStatement.setString(2, user.getFirstName());
-            preparedStatement.setString(3, user.getLastName());
-            preparedStatement.setString(4, user.getUsername());
-            preparedStatement.setString(5, user.getPassword());
-            preparedStatement.setString(6, user.getEmail());
+            preparedStatement.setString(1, user.getFirstName());
+            preparedStatement.setString(2, user.getLastName());
+            preparedStatement.setString(3, user.getUserName());
+            preparedStatement.setString(4, user.getPassword());
+            preparedStatement.setString(5, user.getEmail());
 
             System.out.println(preparedStatement);
-            // Step 3: Execute the query or update query
             result = preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            // process sql exception
             printSQLException(e);
         }
         return result;
@@ -55,4 +53,50 @@ public class UserDao {
             }
         }
     }
+
+	public User getUserByEmail(String email) {
+		Connection connection;
+		Statement statement;
+		ResultSet resultset;
+		String query = String.format("SELECT * FROM users WHERE email = \"%s\"", email);
+		
+		try {
+			connection = getConnection();
+			statement = connection.createStatement();
+			resultset = statement.executeQuery(query);
+			resultset.next();
+			return getUserFromResultSet(resultset);
+		} catch(Exception exception) {
+			exception.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	private Connection getConnection() {
+		Connection connection = null;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://oraclepr.uco.es:3306/i72rogup", "i72rogup", "practicapw");
+		} catch(Exception exception) {
+			exception.printStackTrace();
+		}
+		
+		return connection;
+	}
+
+	private User getUserFromResultSet(ResultSet resultset) {
+		User user = new User();
+		try {
+			user.setFirstName(resultset.getString("firstname"));
+			user.setLastName(resultset.getString("lastname"));
+			user.setUserName(resultset.getString("username"));
+			user.setPassword(resultset.getString("password"));
+			user.setEmail(resultset.getString("email"));
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+		return user;
+	}
 }

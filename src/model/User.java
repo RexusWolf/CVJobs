@@ -8,7 +8,7 @@ public class User implements Serializable {
 	
     private String firstName;
     private String lastName;
-    private String username;
+    private String userName;
     private String password;
     private String email;
     
@@ -24,11 +24,11 @@ public class User implements Serializable {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
     public String getPassword() {
         return password;
@@ -42,4 +42,13 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+	public boolean checkPassword(String password) {
+		System.out.println(password);
+		System.out.println(this.password);
+		if(this.password.equals(password)) {
+			return true;
+		}
+		return false;
+	}
 }
