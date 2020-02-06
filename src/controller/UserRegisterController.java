@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import database.UserDao;
 import model.User;
@@ -42,6 +43,9 @@ public class UserRegisterController extends HttpServlet {
 
         try {
             userDao.registerUser(user);
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			response.sendRedirect("view/userProfile.jsp");
         } catch (Exception e) {
             e.printStackTrace();
         }

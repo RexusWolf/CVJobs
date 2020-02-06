@@ -4,4 +4,4 @@ bin/
 WebContent/WEB-INF/lib/
 .classpath
 .project
-
+*.log
