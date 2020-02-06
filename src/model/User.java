@@ -42,4 +42,13 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+	public boolean checkPassword(String password) {
+		System.out.println(password);
+		System.out.println(this.password);
+		if(this.password.equals(password)) {
+			return true;
+		}
+		return false;
+	}
 }
