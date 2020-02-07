@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" import="database.*" import="model.*" import="java.util.ArrayList"%>
 <%
 	User profileUser = (User) request.getAttribute("profileUser");
-	ArrayList<Skill> skills = (ArrayList<Skill>) session.getAttribute("skills");
+	ArrayList<Skill> skills = (ArrayList<Skill>) request.getAttribute("skills");
 %>
 
 <!DOCTYPE html>

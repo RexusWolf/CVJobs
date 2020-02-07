@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CVJobs</title>
     <!-- CSS files -->
-    <link href="../css/style.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
     <!-- Google font file -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap"
