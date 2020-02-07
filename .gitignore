@@ -1,7 +1,8 @@
 build/
 bin/
 .settings/
-WebContent/WEB-INF/lib/
+WebContent/*
+!/WebContent/WEB-INF/lib/*
 .classpath
 .project
 *.log
