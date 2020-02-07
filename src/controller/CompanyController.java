@@ -21,12 +21,8 @@ public class CompanyController extends HttpServlet {
     public void init() {
         companyDao = new CompanyDao();
     }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	ArrayList<Company> companies = companyDao.listCompanies();
-    	request.setAttribute("companies", companies);
-    	request.getRequestDispatcher("/view/browser.jsp").forward(request, response);
-    }
+    
+    // There is no view for creating companies
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
         String activity = request.getParameter("activity");
