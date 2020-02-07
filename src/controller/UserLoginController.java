@@ -39,8 +39,7 @@ public class UserLoginController extends HttpServlet {
         
 		try {
 			loggedUser = userDao.getUserByEmail(email);
-			int userId = loggedUser.getId();
-			skills = skillDao.listUserSkills(userId);
+			skills = skillDao.listUserSkills(loggedUser.getId());
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
