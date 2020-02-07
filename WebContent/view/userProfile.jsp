@@ -1,7 +1,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="database.*" import="model.*"%>
 <%
-	User profileUser = (User) session.getAttribute("profileUser");
 	User loggedUser = (User) session.getAttribute("loggedUser");
 %>
 
@@ -59,16 +58,9 @@
 					</form>
 				</div>
 			</div>
-			<%
-				//if (loggedUser.getId().equals(loggedUser.getId())){
-			%>
 			<button id="edit-biography"
 				class="cv-primaryButton center profileBiographyButton">Edit
 				bio</button>
-
-			<%
-				//}
-			%>
 		</div>
 		<div class="profileColumn centerProfileColumn">
 			<div class="profilePersonalInfo">
@@ -116,14 +108,8 @@
 						</form>
 					</div>
 				</div>
-				<%
-					//if (loggedUser.getId().equals(loggedUser.getId())){
-				%>
 				<button id="edit-profileInfo"
 					class="cv-primaryButton profileEditButton">Edit bio</button>
-				<%
-					//}
-				%>
 			</div>
 			<div class="profileProfessionalInfo">
 				<div class="profileProInfoDiv">
