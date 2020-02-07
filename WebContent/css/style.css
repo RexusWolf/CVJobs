@@ -63,7 +63,8 @@
 }
 
 .navbar-li .navbar-a:hover {
-  background-color: #111;
+  background-color: #f61b67;
+  color: white !important;
 }
 
 .active {
@@ -497,6 +498,7 @@ span.loginForgotPassword {
   display: table;
   margin: 5px;
   text-align: center;
+  color: white;
 }
 
 .browser-people-result:after {
@@ -520,6 +522,7 @@ span.loginForgotPassword {
   transition: 0.3s;
   float: left;
   width: 150px;
+  color: black;
 }
 
 @media screen and (max-width: 600px) {

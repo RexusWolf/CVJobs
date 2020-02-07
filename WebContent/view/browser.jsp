@@ -4,7 +4,9 @@
 	pageEncoding="UTF-8"
 	import ="database.*"
 	import= "model.*"%>
+<%@ page import ="java.util.ArrayList"%>
 <%User user = (User)session.getAttribute("user"); %>
+<% ArrayList<Company> companies = (ArrayList<Company>) request.getAttribute("companies"); %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CVJobs - Browser</title>
     <!-- CSS files -->
-    <link href="../css/style.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
     <!-- Google font file -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap"
@@ -24,21 +26,21 @@
   <body class="cv-body">
     <ul class="navbar-ul">
       <li class="navbar-li">
-        <a class="navbar-a" href="./forum.jsp">Forum</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/forum">Forum</a>
       </li>
       <li class="navbar-li">
-        <a class="navbar-a" href="./userProfile.jsp">Profile</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/profile">Profile</a>
       </li>
       <li class="navbar-li">
-        <a class="navbar-a" href="./contact.jsp">Contacts</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/contacts">Contacts</a>
       </li>
       <li class="navbar-li">
-        <a class="active navbar-a" href="./browser.jsp">Search</a>
+        <a class="active navbar-a" href="${pageContext.request.contextPath}/browser">Search</a>
       </li>
     </ul>
     <header class="browser-search-header">
       <a href="#">
-        <img class="browser-avatar" src="../img/logo.png" alt="Logo" />
+        <img class="browser-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Logo" />
       </a>
     </header>
     <div class="browser-search">
@@ -73,21 +75,21 @@
       <h3>Profesionales</h3>
       <!-- For Each with people-->
       <div class="browser-card">
-        <img class="browser-card-avatar" src="../img/logo.png" alt="Avatar" />
+        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
         <div class="browser-container">
           <h4><b>Pepe Marquez</b></h4>
           <p>Panadero</p>
         </div>
       </div>
       <div class="browser-card">
-        <img class="browser-card-avatar" src="../img/logo.png" alt="Avatar" />
+        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
         <div class="browser-container">
           <h4><b>Pablo Rodriguez</b></h4>
           <p>Arquitecto</p>
         </div>
       </div>
       <div class="browser-card">
-        <img class="browser-card-avatar" src="../img/logo.png" alt="Avatar" />
+        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
         <div class="browser-container">
           <h4><b>Francisco Molina</b></h4>
           <p>Carpintero</p>
@@ -97,13 +99,18 @@
     <div class="browser-people-result">
       <h3>Compañias</h3>
       <!-- For Each with companies-->
-      <div class="browser-card">
-        <img class="browser-card-avatar" src="../img/logo.png" alt="Avatar" />
-        <div class="browser-container">
-          <h4><b>UCO</b></h4>
-          <p>Universidad</p>
-        </div>
-      </div>
+      <%if (companies.size() != 0) {%>
+		<%for(int i=0; i < companies.size() ;i++) { %> 
+	      <div class="browser-card">
+		        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
+		        <div class="browser-container">
+		          <h4><b><%=companies.get(i).name%></b></h4>
+		          <p><%=companies.get(i).activity%></p>
+		        </div>
+		      </div>
+			<%}%>
+		<%}%>
+     
     </div>
     <script type="text/javascript" src="../js/browser.js"></script>
   </body>
