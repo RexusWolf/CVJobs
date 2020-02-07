@@ -28,7 +28,7 @@
 		<li class="navbar-li"><a class="navbar-a"
 			href="${pageContext.request.contextPath}/contacts">Contacts</a></li>
 		<li class="navbar-li"><a class="navbar-a"
-			href="${pageContext.request.contextPath}/browser">Search</a></li>
+			href="${pageContext.request.contextPath}/userBrowser">Search</a></li>
 	</ul>
 
 	<div class="profileRow">
@@ -70,8 +70,6 @@
 						out.print(loggedUser.getFirstName() + " " + loggedUser.getLastName());
 					%>
 				</h2>
-				<h3 class="profileMarginText center">UX Designer in Audiense
-					Dev</h3>
 				<h5 class="profileMarginText center">
 					<%
 						out.print(loggedUser.getCity() + ", " + loggedUser.getCountry());
@@ -110,29 +108,6 @@
 						            name="country"
 						            value=<%out.print(loggedUser.getCountry());%>
 						          />
-							      <label for="name">
-						            <b>Skill name</b>
-						          </label>
-						          <input
-						            class="loginInput"
-						            type="text"
-						            name="name"
-						          />
-						          <label for="period">
-						            <b>Period</b>
-						          </label>
-						           <input
-						            class="loginInput"
-						            type="text"
-						            name="period"
-						          />
-						          <label for="content">
-						            <b>Content</b>
-						          </label>
-						           <textarea						           
-					            	class="profileBiographyInput"
-					            	name="content">
-						           </textarea>
 							</div>
 							<button id="add-info-button" onclick="AddInfo()" type="button"
 									class="cv-secondaryButton profileAddInfoButton">Add info</button>
@@ -144,31 +119,15 @@
 			</div>
 			<div class="profileProfessionalInfo">
 				<div class="profileProInfoDiv">
-					<h2 class="profileMarginText">Experiencia</h2>
-
-					<h4>Co-founder and CTO Audiense</h4>
-					<h5>Desde abr. de 2011 - actualidad</h5>
-					<p>Audiense delivers unique consumer insight and engagement
-						capabilities to over 4,000 of the worlds largest brands and
-						agencies. We help them to grow their customer and audience bases
-						by finding, identifying and connecting with individuals and
-						audience segments including those they don't yet know about. Our
-						clients include Universal Music, Comic Relief and DigitasLBi. As a
-						CTO I designed and implemented Audiense architecture to scale from
-						0 to hundreds of thousands of Twitter loggedUsers to process data in
-						real time and managing over 5000 transactions per second.</p>
-					<hr />
-					<h4>Researcher</h4>
-					<h5>sep. de 2004 - jul. de 2011</h5>
-					<p>Profesor en la Facultad de Educación a Distancia e
-						investigador como jefe del grupo de desarrollo de la plataforma
-						elearning SEPAD</p>
-
-					<hr />
-					<h4>Programador</h4>
-					<h5>2000 - 2005</h5>
-					<p>Participación como programador freelance en más de 40
-						proyectos para clientes en Estados Unidos, Argentina y EspaÃ±a.</p>
+					<h2 class="profileMarginText">Jobs</h2>
+					<% if(skills.size() != 0) { %>
+	                  <%for(int i=0; i < skills.size() ;i++) { %>
+	                  		<h4><% out.println(skills.get(i).getName()); %></h4>
+	                  		<h5><% out.println(skills.get(i).getPeriod()); %></h5>
+	                  		<p><% out.println(skills.get(i).getContent()); %></p>
+	                  		<hr/>
+	                  <% } %>
+					<% } %>
 				</div>
 				<div class="profileProInfoDiv">
 					<h2 class="profileMarginText">Formación</h2>
@@ -181,29 +140,18 @@
 					<h5>Highschool, Sciences</h5>
 					<p>1994-1997</p>
 				</div>
-				<div class="profileProInfoDiv">
-					<h2 class="profileMarginText">Jobs</h2>
-					<% if(skills.size() != 0) { %>
-	                  <% for(int i=0; i < skills.size() ;i++) { %>
-	                  		<h4><% out.println(skills.get(i).getName()); %></h4>
-	                  		<h5><% out.println(skills.get(i).getPeriod()); %></h5>
-	                  		<p><% out.println(skills.get(i).getContent()); %></p>
-	                  		<hr/>
-	                  <% } %>
-					<% } %>
-				</div>
 			</div>
 		</div>
 		<div class="profileColumn rightProfileColumn">
 			<div class="profileProInfoDiv">
-				<h2>Otros perfiles</h2>
+				<h2>Otros perfiles (Future Feature)</h2>
 				<h4>Carlos Hernández Gómez</h4>
 				<p>Senior Backend Developer at IBM Research</p>
 				<h4>Carlos Hernández Fernández</h4>
 				<p>Senior UX Designer at IBM Research</p>
 				<h4>Carlos Gómez Gómez</h4>
-				<p>Senior Full-Stack Developer at IBM Research</p>
-				<h4>Carlos Fernández Gómez</h4>
+				<p>Senior Full-Stack Developer at JRCP Research</p>
+				<h4>José Ramírez Copado-Pedraza</h4>
 				<p>Senior Frontend Developer at IBM Research</p>
 			</div>
 		</div>

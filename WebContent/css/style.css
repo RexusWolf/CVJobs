@@ -229,7 +229,8 @@ span.loginForgotPassword {
 .profileBiographyInput {
   width: 100%;
   height: 200px;
-  text-align: left;	
+  text-align: left;
+  resize: none;
 }
 
 .biographyModal {

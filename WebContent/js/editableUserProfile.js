@@ -25,7 +25,7 @@ window.onclick = function(event) {
 }
 
 function AddInfo(){
-	var newField = '<div><label for="role"><b>Role</b></label><input class="loginInput" name="role" type="text"><label for="period"><b>Period of time</b></label><input class="loginInput" name="period" type="text"><textarea class="profileBiographyInput"></textarea></div>\r\n';
+	var newField = '<div><label for="role"><b>Role</b></label><input class="loginInput" name="name" type="text"><label for="period"><b>Period of time</b></label><input class="loginInput" name="period" type="text"><textarea class="profileBiographyInput" name="content"></textarea></div>\r\n';
 	document.getElementById('edit-profile-inputs').innerHTML += newField;
 	document.getElementById("add-info-button").disabled = true;
 }

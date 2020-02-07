@@ -35,7 +35,7 @@
         <a class="navbar-a" href="${pageContext.request.contextPath}/contacts">Contacts</a>
       </li>
       <li class="navbar-li">
-        <a class="active navbar-a" href="${pageContext.request.contextPath}/browser">Search</a>
+        <a class="active navbar-a" href="${pageContext.request.contextPath}/userBrowser">Search</a>
       </li>
     </ul>
     <header class="browser-search-header">
@@ -45,9 +45,9 @@
     </header>
     <div class="browser-search">
       <div id="search-form" class="browser-search-column">
-        <form action="${pageContext.request.contextPath}/UserBrowser" method="post">
-          <input type="text" name="firstname" placeholder="First Name" required=""/>
-          <input type="text" name="lastname" placeholder="Last Name" required=""/>
+        <form action="${pageContext.request.contextPath}/userBrowser" method="post">
+          <input type="text" name="firstname" placeholder="First Name" required/>
+          <input type="text" name="lastname" placeholder="Last Name" required/>
           <button class="cv-primaryButton browser-search-button" type="submit">
             Buscar
           </button>

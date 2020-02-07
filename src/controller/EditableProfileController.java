@@ -36,9 +36,7 @@ public class EditableProfileController extends HttpServlet {
 
 	private void updateLoggedUserSkills(HttpServletRequest request) {
 		loggedUserSkills = skillDao.listUserSkills(loggedUser.getId());
-		System.out.println(loggedUserSkills.get(0));
     	request.getSession().setAttribute("skills", loggedUserSkills);
-
 	}
 
 	private void updateLoggedUserInSession(HttpServletRequest request) {

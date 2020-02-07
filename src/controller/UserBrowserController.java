@@ -9,13 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import database.CompanyDao;
 import database.UserDao;
-import model.Company;
 import model.User;
 
 
-@WebServlet("/UserBrowser")
+@WebServlet("/userBrowser")
 public class UserBrowserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -55,6 +53,6 @@ public class UserBrowserController extends HttpServlet {
     	String firstname = request.getParameter("firstname");
     	String lastname = request.getParameter("lastname");
     	
-    	response.sendRedirect(String.format("/CVJobs/UserBrowser?firstname=%s&lastname=%s", firstname, lastname));
+    	response.sendRedirect(String.format("/CVJobs/userBrowser?firstname=%s&lastname=%s", firstname, lastname));
     }
 }

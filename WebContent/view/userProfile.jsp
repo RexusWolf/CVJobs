@@ -1,7 +1,8 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="database.*" import="model.*"%>
+	pageEncoding="UTF-8" import="database.*" import="model.*" import="java.util.ArrayList"%>
 <%
-	User profileUser = (User) session.getAttribute("profileUser");
+	User profileUser = (User) request.getAttribute("profileUser");
+	ArrayList<Skill> skills = (ArrayList<Skill>) session.getAttribute("skills");
 %>
 
 <!DOCTYPE html>
@@ -49,8 +50,6 @@
 						out.print(profileUser.getFirstName() + " " + profileUser.getLastName());
 					%>
 				</h2>
-				<h3 class="profileMarginText center">UX Designer in Audiense
-					Dev</h3>
 				<h5 class="profileMarginText center">
 					<%
 						out.print(profileUser.getCity() + ", " + profileUser.getCountry());
@@ -59,31 +58,14 @@
 			</div>
 			<div class="profileProfessionalInfo">
 				<div class="profileProInfoDiv">
-					<h2 class="profileMarginText">Experiencia</h2>
-
-					<h4>Co-founder and CTO Audiense</h4>
-					<h5>Desde abr. de 2011 - actualidad</h5>
-					<p>Audiense delivers unique consumer insight and engagement
-						capabilities to over 4,000 of the worlds largest brands and
-						agencies. We help them to grow their customer and audience bases
-						by finding, identifying and connecting with individuals and
-						audience segments including those they don't yet know about. Our
-						clients include Universal Music, Comic Relief and DigitasLBi. As a
-						CTO I designed and implemented Audiense architecture to scale from
-						0 to hundreds of thousands of Twitter profileUsers to process data in
-						real time and managing over 5000 transactions per second.</p>
-					<hr />
-					<h4>Researcher</h4>
-					<h5>sep. de 2004 - jul. de 2011</h5>
-					<p>Profesor en la Facultad de Educación a Distancia e
-						investigador como jefe del grupo de desarrollo de la plataforma
-						elearning SEPAD</p>
-
-					<hr />
-					<h4>Programador</h4>
-					<h5>2000 - 2005</h5>
-					<p>Participación como programador freelance en más de 40
-						proyectos para clientes en Estados Unidos, Argentina y EspaÃ±a.</p>
+					<% if(skills.size() != 0) { %>
+	                  <%for(int i=0; i < skills.size() ;i++) { %>
+	                  		<h4><% out.println(skills.get(i).getName()); %></h4>
+	                  		<h5><% out.println(skills.get(i).getPeriod()); %></h5>
+	                  		<p><% out.println(skills.get(i).getContent()); %></p>
+	                  		<hr/>
+	                  <% } %>
+					<% } %>
 				</div>
 				<div class="profileProInfoDiv">
 					<h2 class="profileMarginText">Formación</h2>
@@ -96,25 +78,18 @@
 					<h5>Highschool, Sciences</h5>
 					<p>1994-1997</p>
 				</div>
-				<div class="profileProInfoDiv">
-					<h2 class="profileMarginText">Skills</h2>
-					<h4>- Social Media Development</h4>
-					<h4>- Product Management</h4>
-					<h4>- Online Marketing</h4>
-					<h4>- Leadership</h4>
-				</div>
 			</div>
 		</div>
 		<div class="profileColumn rightProfileColumn">
 			<div class="profileProInfoDiv">
-				<h2>Otros perfiles</h2>
+				<h2>Otros perfiles (Future Feature)</h2>
 				<h4>Carlos Hernández Gómez</h4>
 				<p>Senior Backend Developer at IBM Research</p>
 				<h4>Carlos Hernández Fernández</h4>
 				<p>Senior UX Designer at IBM Research</p>
 				<h4>Carlos Gómez Gómez</h4>
-				<p>Senior Full-Stack Developer at IBM Research</p>
-				<h4>Carlos Fernández Gómez</h4>
+				<p>Senior Full-Stack Developer at JRCP Research</p>
+				<h4>José Ramírez Copado-Pedraza</h4>
 				<p>Senior Frontend Developer at IBM Research</p>
 			</div>
 		</div>

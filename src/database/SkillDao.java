@@ -14,8 +14,8 @@ public class SkillDao {
 		Connection connection;
 		Statement statement;
 		String query = String.format(
-				"INSERT INTO skills (userId, name) VALUES ('%s', '%s')", 
-				skill.getUserId(), skill.getName());
+				"INSERT INTO skills (user_id, name, period, content) VALUES ('%s', '%s', '%s', '%s')", 
+				skill.getUserId(), skill.getName(), skill.getPeriod(), skill.getContent());
 
         int result = 0;
 
@@ -87,7 +87,7 @@ public class SkillDao {
 	private Skill getSkillFromResultSet(ResultSet resultset) {
 		try {
 			Skill skill = new Skill(
-					resultset.getInt("userId"),
+					resultset.getInt("user_id"),
 					resultset.getString("name"),
 					resultset.getString("period"),
 					resultset.getString("content")
