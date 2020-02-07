@@ -29,13 +29,13 @@
         <a class="active navbar-a" href="${pageContext.request.contextPath}/forum">Forum</a>
       </li>
       <li class="navbar-li">
-        <a class="navbar-a" href="${pageContext.request.contextPath}/view/userProfile.jsp">Profile</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/profile">Profile</a>
       </li>
       <li class="navbar-li">
-        <a class="navbar-a" href="./contact.jsp">Contacts</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/contacts">Contacts</a>
       </li>
       <li class="navbar-li">
-        <a class="navbar-a" href="./browser.jsp">Search</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/browser">Search</a>
       </li>
     </ul>
 

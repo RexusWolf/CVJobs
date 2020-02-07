@@ -63,7 +63,8 @@
 }
 
 .navbar-li .navbar-a:hover {
-  background-color: #111;
+  background-color: #f61b67;
+  color: white !important;
 }
 
 .active {
@@ -191,6 +192,33 @@ span.loginForgotPassword {
   margin: 15px;
 }
 
+.profileAddInfoButton {
+  position: relative;
+  top: -10%;
+  width: 70px;
+  height: 30px;
+  margin-right: -15px !important;
+}
+
+.profileEditButton {
+  position: relative;
+  top: -50%;
+  right: 0px;
+  width: 140px;
+  height: 40px;
+  float: right;
+  margin-right: -15px !important;
+}
+
+.profileSaveButton {
+  position: relative;
+  top: -10%;
+  left: 65%;
+  width: 140px;
+  height: 40px;
+  margin-right: -15px !important;
+}
+
 .profileBiographyButton {
   width: 140px;
   height: 40px;
@@ -200,7 +228,7 @@ span.loginForgotPassword {
 
 .profileBiographyInput {
   width: 100%;
-  height: 400px;
+  height: 200px;
   text-align: left;	
 }
 
@@ -223,11 +251,13 @@ span.loginForgotPassword {
   margin: 15% auto;
   padding: 60px;
   border: 1px solid #888;
-  width: 80%;
+  width: 35%;
 }
 
 
 .closeButton {
+  position: relative;
+  top: -10%;
   color: #aaa;
   float: right;
   font-size: 50px;
@@ -497,6 +527,7 @@ span.loginForgotPassword {
   display: table;
   margin: 5px;
   text-align: center;
+  color: white;
 }
 
 .browser-people-result:after {
@@ -520,6 +551,7 @@ span.loginForgotPassword {
   transition: 0.3s;
   float: left;
   width: 150px;
+  color: black;
 }
 
 @media screen and (max-width: 600px) {
