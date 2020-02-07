@@ -24,5 +24,7 @@ window.onclick = function(event) {
   }
 }
 
-var newField = '<span>Label: <input type="text"><small>(ft)</small></span>\r\n';
-document.getElementById('wrapper').innerHTML += newField;      
+function AddInfo(){
+	var newField = '<div><label for="role"><b>Role</b></label><input class="loginInput" name="role" type="text"><label for="period"><b>Period of time</b></label><input class="loginInput" name="period" type="text"><textarea class="profileBiographyInput"></textarea></div>\r\n';
+	document.getElementById('edit-profile-inputs').innerHTML += newField;
+}

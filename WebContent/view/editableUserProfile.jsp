@@ -1,7 +1,8 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="database.*" import="model.*"%>
+	pageEncoding="UTF-8" import="database.*" import="model.*" import="java.util.ArrayList"%>
 <%
 	User loggedUser = (User) session.getAttribute("loggedUser");
+	ArrayList<Skill> skills = (ArrayList<Skill>) request.getAttribute("skills");
 %>
 
 <!DOCTYPE html>
@@ -83,9 +84,12 @@
 								<button class="cv-primaryButton profileSaveButton"
 									type="submit">Save</button>
 							<div>
-								<input
+							<input
 									class="loginInput" type="hidden" name="email"
 									value=<%out.print(loggedUser.getEmail());%> />
+								<input
+									class="loginInput" type="hidden" name="userId"
+									value=<%out.print(loggedUser.getId());%> />
 								<label for="city">
 						            <b>City</b>
 						          </label>
@@ -104,9 +108,43 @@
 						            name="country"
 						            value=<%out.print(loggedUser.getCountry());%>
 						          />
-								<button
-									class="cv-secondaryButton profileAddInfoButton">Add info</button>
+						           <!-- For Each with companies-->
+							      <%if (skills.size() != 0) {%>
+									<%for(int i=0; i < skills.size() ;i++) { %> 
+									      <label for="name">
+								            <b>Skill name</b>
+								          </label>
+								          <input
+								            class="loginInput"
+								            type="text"
+								            name="name"
+								            value=<%out.print(skills.get(i).getName());%>
+								          />
+								          <label for="period">
+								            <b>Period</b>
+								          </label>
+								           <input
+								            class="loginInput"
+								            type="text"
+								            name="period"
+								            value=<%out.print(skills.get(i).getPeriod());%>
+								          />
+								          <label for="content">
+								            <b>Content</b>
+								          </label>
+								           <textarea
+								            class="profileBiographyInput"
+								            name="content"
+								          ><%out.print(skills.get(i).getContent());%>
+								          </textarea>
+									          
+										<%}%>
+									<%}%>
 							</div>
+							<div id="edit-profile-inputs">
+							</div>
+							<button onclick="AddInfo()" type="button"
+									class="cv-secondaryButton profileAddInfoButton">Add info</button>
 						</form>
 					</div>
 				</div>
