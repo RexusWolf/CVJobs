@@ -5,7 +5,7 @@
 	import="java.util.ArrayList"
 	import ="database.*"
 	import= "model.*"%>
-<% User user = (User)session.getAttribute("user"); %>
+<% User loggedUser = (User)session.getAttribute("loggedUser"); %>
 <% ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("posts"); %>
 
 <!DOCTYPE html>
