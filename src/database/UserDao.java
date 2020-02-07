@@ -186,4 +186,20 @@ public class UserDao {
 
 		return 0;
 	}
+
+	public int updateUserProfileInfo(String email, String city, String country) {
+		Connection connection;
+		Statement statement;
+		String query = String.format("UPDATE users SET city = '%s', country = '%s' WHERE email = '%s'", city, country, email);
+
+		try {
+			connection = getConnection();
+			statement = connection.createStatement();
+			return statement.executeUpdate(query);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+
+		return 0;
+	}
 }

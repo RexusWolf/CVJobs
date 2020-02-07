@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import database.UserDao;
 import model.User;
@@ -34,18 +33,17 @@ public class UserRegisterController extends HttpServlet {
         String password = request.getParameter("password");
         String email = request.getParameter("email");
 
-        User user = new User();
-        user.setFirstName(firstname);
-        user.setLastName(lastname);
-        user.setUserName(username);
-        user.setPassword(password);
-        user.setEmail(email);
+        User loggedUser = new User();
+        loggedUser.setFirstName(firstname);
+        loggedUser.setLastName(lastname);
+        loggedUser.setUserName(username);
+        loggedUser.setPassword(password);
+        loggedUser.setEmail(email);
 
         try {
-            userDao.registerUser(user);
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			response.sendRedirect("view/userProfile.jsp");
+            userDao.registerUser(loggedUser);
+			request.getSession().setAttribute("loggedUser", loggedUser);
+			response.sendRedirect("myProfile");
         } catch (Exception e) {
             e.printStackTrace();
         }

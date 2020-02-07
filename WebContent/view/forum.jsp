@@ -5,7 +5,7 @@
 	import="java.util.ArrayList"
 	import ="database.*"
 	import= "model.*"%>
-<% User user = (User)session.getAttribute("user"); %>
+<% User loggedUser = (User)session.getAttribute("loggedUser"); %>
 <% ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("posts"); %>
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
         <a class="active navbar-a" href="${pageContext.request.contextPath}/forum">Forum</a>
       </li>
       <li class="navbar-li">
-        <a class="navbar-a" href="${pageContext.request.contextPath}/profile">Profile</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/myProfile">Profile</a>
       </li>
       <li class="navbar-li">
         <a class="navbar-a" href="${pageContext.request.contextPath}/contacts">Contacts</a>
