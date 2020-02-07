@@ -23,7 +23,7 @@
 		<li class="navbar-li"><a class="navbar-a"
 			href="${pageContext.request.contextPath}/forum">Forum</a></li>
 		<li class="navbar-li"><a class="active navbar-a"
-			href="${pageContext.request.contextPath}/profile">Profile</a></li>
+			href="${pageContext.request.contextPath}/myProfile">Profile</a></li>
 		<li class="navbar-li"><a class="navbar-a"
 			href="${pageContext.request.contextPath}/contacts">Contacts</a></li>
 		<li class="navbar-li"><a class="navbar-a"
