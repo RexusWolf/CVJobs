@@ -1,7 +1,8 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="database.*" import="model.*"%>
 <%
-	User user = (User) session.getAttribute("user");
+	User loggedUser = (User) session.getAttribute("loggedUser");
+	User profileUser = (User) request.getAttribute("profileUser");
 %>
 
 <!DOCTYPE html>
@@ -11,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CVJobs - Profile Page</title>
 <!-- CSS files -->
-<link href="../css/style.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
 <!-- Google font file -->
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap"
@@ -42,7 +43,7 @@
 
 			<p id="biography" class="profileMarginText justified">
 				<%
-					out.print(user.getBiography());
+					out.print(profileUser.getBiography());
 				%>
 			</p>
 
@@ -52,8 +53,8 @@
 						accept-charset="utf-8" method="post">
 						<div>
 							<span class="closeButton">&times;</span> <input class="loginInput"
-								type="hidden" name="email" value=<%out.print(user.getEmail());%> />
-							<textarea class="profileBiographyInput" name="biography"><%out.print(user.getBiography());%></textarea>
+								type="hidden" name="email" value=<%out.print(profileUser.getEmail());%> />
+							<textarea class="profileBiographyInput" name="biography"><%out.print(profileUser.getBiography());%></textarea>
 							<button class="cv-primaryButton profileBiographyButton"
 								type="submit">Guardar cambios</button>
 						</div>
@@ -69,14 +70,14 @@
 			<div class="profilePersonalInfo">
 				<h2 class="profileMarginText center">
 					<%
-						out.print(user.getFirstName() + " " + user.getLastName());
+						out.print(profileUser.getFullName() + " " + loggedUser.getFullName());
 					%>
 				</h2>
 				<h3 class="profileMarginText center">UX Designer in Audiense
 					Dev</h3>
 				<h5 class="profileMarginText center">
 					<%
-						out.print(user.getCity());
+						out.print(profileUser.getCity());
 					%>
 				</h5>
 			</div>

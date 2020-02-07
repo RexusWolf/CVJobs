@@ -36,13 +36,13 @@ public class ForumController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		user = (User) request.getSession(false).getAttribute("user");
+		user = (User) request.getSession(false).getAttribute("loggedUser");
 		post.setTitle(request.getParameter("title"));
 		post.setContent(request.getParameter("content"));
 		post.setUserId(user.getId());
 		post.setAuthor(user.getFullName());
 		postDao.Add(post);
-		doGet(request, response);
+		response.sendRedirect("forum");
 	}
 
 }

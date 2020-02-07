@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import database.UserDao;
 import model.User;
 
-@WebServlet("/editBiography")
-public class EditBiographyController extends HttpServlet {
+@WebServlet("/myProfile")
+public class EditableProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
     private UserDao userDao;
@@ -22,7 +22,7 @@ public class EditBiographyController extends HttpServlet {
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	request.getRequestDispatcher("/view/login.jsp").forward(request, response);
+    	request.getRequestDispatcher("/view/userProfile.jsp").forward(request, response);
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

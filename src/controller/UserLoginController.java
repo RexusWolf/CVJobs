@@ -27,23 +27,23 @@ public class UserLoginController extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = new User();
+		User loggedUser = new User();
 		String email = request.getParameter("email");
         String password = request.getParameter("password");
         
 		try {
-			user = userDao.getUserByEmail(email);
+			loggedUser = userDao.getUserByEmail(email);
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
 		
-		if(!user.checkPassword(password)) {
+		if(!loggedUser.checkPassword(password)) {
 			request.setAttribute("Error", "Incorrect email or password");
 	    	request.getRequestDispatcher("/view/login.jsp").forward(request, response);
 		} else {
 			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			response.sendRedirect("view/userProfile.jsp");
+			session.setAttribute("loggedUser", loggedUser);
+			response.sendRedirect("myProfile");
 		}
 	}
 }

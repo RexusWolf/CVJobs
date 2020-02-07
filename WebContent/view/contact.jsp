@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"
 	import ="database.*"
 	import= "model.*"%>
-<%User user = (User)session.getAttribute("user"); %>
+<%User loggedUser = (User)session.getAttribute("loggedUser"); %>
 
 <!DOCTYPE html>
 <html lang="en">
