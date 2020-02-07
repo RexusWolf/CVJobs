@@ -42,8 +42,7 @@ public class UserRegisterController extends HttpServlet {
 
         try {
             userDao.registerUser(loggedUser);
-			request.getSession().setAttribute("loggedUser", loggedUser);
-			response.sendRedirect("myProfile");
+			response.sendRedirect("signIn");
         } catch (Exception e) {
             e.printStackTrace();
         }
