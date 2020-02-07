@@ -6,15 +6,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import model.User;
 
 public class UserDao {
+	private int PAGE_LIMIT = 20;
+	
 	public int registerUser(User user) throws ClassNotFoundException {
 		String INSERT_USERS_SQL = "INSERT INTO users" + "  (firstname, lastname, username, password, email) VALUES "
 				+ " (?, ?, ?, ?, ?);";
 
 		int result = 0;
+		
 
 		Class.forName("com.mysql.jdbc.Driver");
 
@@ -65,6 +69,62 @@ public class UserDao {
 			resultset = statement.executeQuery(query);
 			resultset.next();
 			return getUserFromResultSet(resultset);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	public ArrayList<User> paginatedGetUserByName(String firstname, String lastname, int page) {
+		Connection connection;
+		Statement statement;
+		ResultSet resultset;
+		String conditions = "";
+		ArrayList<User> users = new ArrayList<User>();
+		
+		if ((firstname != null) && (lastname != null)) {
+			conditions = String.format("WHERE firstname = '%s' AND lastname = '%s'", firstname, lastname);
+		} else if (firstname != null) {
+			conditions = String.format("WHERE firstname = '%s'", firstname);
+		} else if (lastname != null){
+			conditions = String.format("WHERE lastname = '%s'", lastname);
+		}
+		String paginatedQuery = String.format(
+				"SELECT  * FROM users %s LIMIT %d, %d", conditions, (PAGE_LIMIT*page), (PAGE_LIMIT*page) + PAGE_LIMIT);
+
+		try {
+			connection = getConnection();
+			statement = connection.createStatement();
+			resultset = statement.executeQuery(paginatedQuery);
+			while(resultset.next()) {
+				users.add(getUserFromResultSet(resultset));
+			}
+			System.out.print(users);
+			return users;
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	public ArrayList<User> paginatedUsers(int page) {
+		Connection connection;
+		Statement statement;
+		ResultSet resultset;
+		ArrayList<User> users = new ArrayList<User>(); 
+		String paginatedQuery = String.format(
+				"SELECT  * FROM users LIMIT %d, %d", (PAGE_LIMIT*page), (PAGE_LIMIT*page) + PAGE_LIMIT);
+
+		try {
+			connection = getConnection();
+			statement = connection.createStatement();
+			resultset = statement.executeQuery(paginatedQuery);
+			while(resultset.next()) {
+				users.add(getUserFromResultSet(resultset));
+			}
+			return users;
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}

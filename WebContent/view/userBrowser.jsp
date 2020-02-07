@@ -6,7 +6,7 @@
 	import= "model.*"%>
 <%@ page import ="java.util.ArrayList"%>
 <%User user = (User)session.getAttribute("user"); %>
-<% ArrayList<Company> companies = (ArrayList<Company>) request.getAttribute("companies"); %>
+<% ArrayList<User> users = (ArrayList<User>) request.getAttribute("resultUsers"); %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@
         <a class="navbar-a" href="${pageContext.request.contextPath}/forum">Forum</a>
       </li>
       <li class="navbar-li">
-        <a class="navbar-a" href="${pageContext.request.contextPath}/myProfile">Profile</a>
+        <a class="navbar-a" href="${pageContext.request.contextPath}/profile">Profile</a>
       </li>
       <li class="navbar-li">
         <a class="navbar-a" href="${pageContext.request.contextPath}/contacts">Contacts</a>
@@ -45,20 +45,13 @@
     </header>
     <div class="browser-search">
       <div id="search-form" class="browser-search-column">
-        <form action="#" method="post">
-          <input type="search" name="search_input" />
+        <form action="${pageContext.request.contextPath}/UserBrowser" method="post">
+          <input type="text" name="firstname" placeholder="First Name" required=""/>
+          <input type="text" name="lastname" placeholder="Last Name" required=""/>
           <button class="cv-primaryButton browser-search-button" type="submit">
             Buscar
           </button>
         </form>
-      </div>
-      <div class="browser-search-column">
-        <button
-          onclick="showFilter()"
-          class="cv-primaryButton browser-filter-button"
-        >
-          Filtrar
-        </button>
       </div>
     </div>
     <div id="filter-section" class="browser-filter-section">
@@ -73,44 +66,20 @@
     </div>
     <div class="browser-people-result">
       <h3>Profesionales</h3>
-      <!-- For Each with people-->
-      <div class="browser-card">
-        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
-        <div class="browser-container">
-          <h4><b>Pepe Marquez</b></h4>
-          <p>Panadero</p>
-        </div>
-      </div>
-      <div class="browser-card">
-        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
-        <div class="browser-container">
-          <h4><b>Pablo Rodriguez</b></h4>
-          <p>Arquitecto</p>
-        </div>
-      </div>
-      <div class="browser-card">
-        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
-        <div class="browser-container">
-          <h4><b>Francisco Molina</b></h4>
-          <p>Carpintero</p>
-        </div>
-      </div>
-    </div>
-    <div class="browser-people-result">
-      <h3>Compañias</h3>
-      <!-- For Each with companies-->
-      <%if (companies.size() != 0) {%>
-		<%for(int i=0; i < companies.size() ;i++) { %> 
-	      <div class="browser-card">
-		        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
-		        <div class="browser-container">
-		          <h4><b><%=companies.get(i).name%></b></h4>
-		          <p><%=companies.get(i).activity%></p>
-		        </div>
-		      </div>
+      
+      <%if (users != null) {%>
+	      <%if (users.size() != 0) {%>
+			<%for(int i=0; i < users.size() ;i++) { %> 
+		      <div class="browser-card">
+			        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
+			        <div class="browser-container">
+			          <h4><b><%=users.get(i).getFirstName()%> <%=users.get(i).getLastName()%></b></h4>
+			        </div>
+			      </div>
+				<%}%>
 			<%}%>
 		<%}%>
-     
+
     </div>
     <script type="text/javascript" src="../js/browser.js"></script>
   </body>
