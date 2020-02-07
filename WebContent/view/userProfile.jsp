@@ -28,7 +28,7 @@
 		<li class="navbar-li"><a class="navbar-a"
 			href="${pageContext.request.contextPath}/contacts">Contacts</a></li>
 		<li class="navbar-li"><a class="navbar-a"
-			href="${pageContext.request.contextPath}/browser">Search</a></li>
+			href="${pageContext.request.contextPath}/userBrowser">Search</a></li>
 	</ul>
 
 	<div class="profileRow">

@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,6 +31,7 @@ public class ForumController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<Post> posts = postDao.getAllPosts();
+		Collections.reverse(posts);
 		request.setAttribute("posts", posts);
 		request.getRequestDispatcher("/view/forum.jsp").forward(request, response);
 	}
