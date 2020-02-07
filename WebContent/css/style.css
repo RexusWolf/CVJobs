@@ -192,6 +192,16 @@ span.loginForgotPassword {
   margin: 15px;
 }
 
+.profileEditButton {
+  position: relative;
+  top: -50%;
+  right: 0px;
+  width: 140px;
+  height: 40px;
+  float: right;
+  margin-right: -15px !important;
+}
+
 .profileBiographyButton {
   width: 140px;
   height: 40px;
@@ -224,11 +234,13 @@ span.loginForgotPassword {
   margin: 15% auto;
   padding: 60px;
   border: 1px solid #888;
-  width: 80%;
+  width: 30%;
 }
 
 
 .closeButton {
+  position: relative;
+  top: -10%;
   color: #aaa;
   float: right;
   font-size: 50px;

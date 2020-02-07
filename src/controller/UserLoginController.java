@@ -42,7 +42,7 @@ public class UserLoginController extends HttpServlet {
 	    	request.getRequestDispatcher("/view/login.jsp").forward(request, response);
 		} else {
 			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
+			session.setAttribute("loggedUser", user);
 			response.sendRedirect("view/userProfile.jsp");
 		}
 	}

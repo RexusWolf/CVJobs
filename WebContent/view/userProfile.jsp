@@ -1,7 +1,8 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="database.*" import="model.*"%>
 <%
-	User user = (User) session.getAttribute("user");
+	User profileUser = (User) session.getAttribute("profileUser");
+	User loggedUser = (User) session.getAttribute("loggedUser");
 %>
 
 <!DOCTYPE html>
@@ -18,21 +19,17 @@
 	rel="stylesheet" />
 </head>
 
-  <body class="cv-body">
-    <ul class="navbar-ul">
-      <li class="navbar-li">
-        <a class="navbar-a" href="${pageContext.request.contextPath}/forum">Forum</a>
-      </li>
-      <li class="navbar-li">
-        <a class="active navbar-a" href="${pageContext.request.contextPath}/profile">Profile</a>
-      </li>
-      <li class="navbar-li">
-        <a class="navbar-a" href="${pageContext.request.contextPath}/contacts">Contacts</a>
-      </li>
-      <li class="navbar-li">
-        <a class="navbar-a" href="${pageContext.request.contextPath}/browser">Search</a>
-      </li>
-    </ul>
+<body class="cv-body">
+	<ul class="navbar-ul">
+		<li class="navbar-li"><a class="navbar-a"
+			href="${pageContext.request.contextPath}/forum">Forum</a></li>
+		<li class="navbar-li"><a class="active navbar-a"
+			href="${pageContext.request.contextPath}/profile">Profile</a></li>
+		<li class="navbar-li"><a class="navbar-a"
+			href="${pageContext.request.contextPath}/contacts">Contacts</a></li>
+		<li class="navbar-li"><a class="navbar-a"
+			href="${pageContext.request.contextPath}/browser">Search</a></li>
+	</ul>
 
 	<div class="profileRow">
 		<div class="profileBiographyColumn profileColumn leftProfileColumn">
@@ -42,7 +39,7 @@
 
 			<p id="biography" class="profileMarginText justified">
 				<%
-					out.print(user.getBiography());
+					out.print(loggedUser.getBiography());
 				%>
 			</p>
 
@@ -51,34 +48,82 @@
 					<form action="${pageContext.request.contextPath}/editBiography"
 						accept-charset="utf-8" method="post">
 						<div>
-							<span class="closeButton">&times;</span> <input class="loginInput"
-								type="hidden" name="email" value=<%out.print(user.getEmail());%> />
-							<textarea class="profileBiographyInput" name="biography"><%out.print(user.getBiography());%></textarea>
+							 <input
+								class="loginInput" type="hidden" name="email"
+								value=<%out.print(loggedUser.getEmail());%> />
+							<textarea class="profileBiographyInput" name="biography"><%out.print(loggedUser.getBiography());%>
+							</textarea>
 							<button class="cv-primaryButton profileBiographyButton"
-								type="submit">Guardar cambios</button>
+								type="submit">Save</button>
 						</div>
 					</form>
 				</div>
 			</div>
+			<%
+				//if (loggedUser.getId().equals(loggedUser.getId())){
+			%>
 			<button id="edit-biography"
 				class="cv-primaryButton center profileBiographyButton">Edit
 				bio</button>
 
+			<%
+				//}
+			%>
 		</div>
 		<div class="profileColumn centerProfileColumn">
 			<div class="profilePersonalInfo">
 				<h2 class="profileMarginText center">
 					<%
-						out.print(user.getFirstName() + " " + user.getLastName());
+						out.print(loggedUser.getFirstName() + " " + loggedUser.getLastName());
 					%>
 				</h2>
 				<h3 class="profileMarginText center">UX Designer in Audiense
 					Dev</h3>
 				<h5 class="profileMarginText center">
 					<%
-						out.print(user.getCity());
+						out.print(loggedUser.getCity() + ", " + loggedUser.getCountry());
 					%>
 				</h5>
+				<div id="profileInfoModal" class="biographyModal">
+					<div class="biographyModal-content">
+						<form action="${pageContext.request.contextPath}/editProfileInfo"
+							accept-charset="utf-8" method="post">
+							<div>
+								<input
+									class="loginInput" type="hidden" name="email"
+									value=<%out.print(loggedUser.getEmail());%> />
+								<label for="city">
+						            <b>City</b>
+						          </label>
+						          <input
+						            class="loginInput"
+						            type="text"
+						            name="city"
+						            value=<%out.print(loggedUser.getCity());%>
+						          />
+						          <label for="country">
+						            <b>Country</b>
+						          </label>
+						           <input
+						            class="loginInput"
+						            type="text"
+						            name="country"
+						            value=<%out.print(loggedUser.getCountry());%>
+						          />
+								<button class="cv-primaryButton profileBiographyButton"
+									type="submit">Save</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<%
+					//if (loggedUser.getId().equals(loggedUser.getId())){
+				%>
+				<button id="edit-profileInfo"
+					class="cv-primaryButton profileEditButton">Edit bio</button>
+				<%
+					//}
+				%>
 			</div>
 			<div class="profileProfessionalInfo">
 				<div class="profileProInfoDiv">
@@ -93,7 +138,7 @@
 						audience segments including those they don't yet know about. Our
 						clients include Universal Music, Comic Relief and DigitasLBi. As a
 						CTO I designed and implemented Audiense architecture to scale from
-						0 to hundreds of thousands of Twitter users to process data in
+						0 to hundreds of thousands of Twitter loggedUsers to process data in
 						real time and managing over 5000 transactions per second.</p>
 					<hr />
 					<h4>Researcher</h4>

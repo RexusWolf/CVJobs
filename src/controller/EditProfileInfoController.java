@@ -11,11 +11,11 @@ import javax.servlet.http.HttpSession;
 import database.UserDao;
 import model.User;
 
-@WebServlet("/editBiography")
-public class EditBiographyController extends HttpServlet {
+@WebServlet("/editProfileInfo")
+public class EditProfileInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-    private UserDao userDao;
+
+	private UserDao userDao;
     
     public void init() {
         userDao = new UserDao();
@@ -25,10 +25,11 @@ public class EditBiographyController extends HttpServlet {
 		User user = new User();
 		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
-        String biography = request.getParameter("biography");
+        String city = request.getParameter("city");
+        String country = request.getParameter("country");
        
         try {
-        	userDao.updateUserBiography(email, biography);
+        	userDao.updateUserProfileInfo(email, city, country);
         	user = userDao.getUserByEmail(email);
         } catch (Exception exception) {
 			exception.printStackTrace();
