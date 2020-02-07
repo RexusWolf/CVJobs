@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" import="database.*" import="model.*" import="java.util.ArrayList"%>
 <%
 	User loggedUser = (User) session.getAttribute("loggedUser");
-	ArrayList<Skill> skills = (ArrayList<Skill>) request.getAttribute("skills");
+	ArrayList<Skill> skills = (ArrayList<Skill>) session.getAttribute("skills");
 %>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
 		<li class="navbar-li"><a class="navbar-a"
 			href="${pageContext.request.contextPath}/forum">Forum</a></li>
 		<li class="navbar-li"><a class="active navbar-a"
-			href="${pageContext.request.contextPath}/profile">Profile</a></li>
+			href="${pageContext.request.contextPath}/myProfile">Profile</a></li>
 		<li class="navbar-li"><a class="navbar-a"
 			href="${pageContext.request.contextPath}/contacts">Contacts</a></li>
 		<li class="navbar-li"><a class="navbar-a"
@@ -33,7 +33,7 @@
 
 	<div class="profileRow">
 		<div class="profileBiographyColumn profileColumn leftProfileColumn">
-			<img class="avatarProfile" src="../img/img_avatar.png" />
+			<img class="avatarProfile" src="${pageContext.request.contextPath}/img/img_avatar.png" />
 
 			<h2 class="center">Biografía</h2>
 
@@ -45,7 +45,7 @@
 
 			<div id="biographyModal" class="biographyModal">
 				<div class="biographyModal-content">
-					<form action="${pageContext.request.contextPath}/editBiography"
+					<form action="${pageContext.request.contextPath}/updateBiography"
 						accept-charset="utf-8" method="post">
 						<div>
 							 <input
@@ -79,17 +79,19 @@
 				</h5>
 				<div id="profileInfoModal" class="biographyModal">
 					<div class="biographyModal-content">
-						<form action="${pageContext.request.contextPath}/editProfileInfo"
+						<form action="${pageContext.request.contextPath}/myProfile"
 							accept-charset="utf-8" method="post">
 								<button class="cv-primaryButton profileSaveButton"
 									type="submit">Save</button>
-							<div>
-							<input
+							<div id="edit-profile-inputs">
+								<input
 									class="loginInput" type="hidden" name="email"
-									value=<%out.print(loggedUser.getEmail());%> />
+									value=<%out.print(loggedUser.getEmail());%>
+								 />
 								<input
 									class="loginInput" type="hidden" name="userId"
-									value=<%out.print(loggedUser.getId());%> />
+									value=<%out.print(loggedUser.getId());%>
+								 />
 								<label for="city">
 						            <b>City</b>
 						          </label>
@@ -108,42 +110,31 @@
 						            name="country"
 						            value=<%out.print(loggedUser.getCountry());%>
 						          />
-						           <!-- For Each with companies-->
-							      <%if (skills.size() != 0) {%>
-									<%for(int i=0; i < skills.size() ;i++) { %> 
-									      <label for="name">
-								            <b>Skill name</b>
-								          </label>
-								          <input
-								            class="loginInput"
-								            type="text"
-								            name="name"
-								            value=<%out.print(skills.get(i).getName());%>
-								          />
-								          <label for="period">
-								            <b>Period</b>
-								          </label>
-								           <input
-								            class="loginInput"
-								            type="text"
-								            name="period"
-								            value=<%out.print(skills.get(i).getPeriod());%>
-								          />
-								          <label for="content">
-								            <b>Content</b>
-								          </label>
-								           <textarea
-								            class="profileBiographyInput"
-								            name="content"
-								          ><%out.print(skills.get(i).getContent());%>
-								          </textarea>
-									          
-										<%}%>
-									<%}%>
+							      <label for="name">
+						            <b>Skill name</b>
+						          </label>
+						          <input
+						            class="loginInput"
+						            type="text"
+						            name="name"
+						          />
+						          <label for="period">
+						            <b>Period</b>
+						          </label>
+						           <input
+						            class="loginInput"
+						            type="text"
+						            name="period"
+						          />
+						          <label for="content">
+						            <b>Content</b>
+						          </label>
+						           <textarea						           
+					            	class="profileBiographyInput"
+					            	name="content">
+						           </textarea>
 							</div>
-							<div id="edit-profile-inputs">
-							</div>
-							<button onclick="AddInfo()" type="button"
+							<button id="add-info-button" onclick="AddInfo()" type="button"
 									class="cv-secondaryButton profileAddInfoButton">Add info</button>
 						</form>
 					</div>
@@ -191,11 +182,15 @@
 					<p>1994-1997</p>
 				</div>
 				<div class="profileProInfoDiv">
-					<h2 class="profileMarginText">Skills</h2>
-					<h4>- Social Media Development</h4>
-					<h4>- Product Management</h4>
-					<h4>- Online Marketing</h4>
-					<h4>- Leadership</h4>
+					<h2 class="profileMarginText">Jobs</h2>
+					<% if(skills.size() != 0) { %>
+	                  <% for(int i=0; i < skills.size() ;i++) { %>
+	                  		<h4><% out.println(skills.get(i).getName()); %></h4>
+	                  		<h5><% out.println(skills.get(i).getPeriod()); %></h5>
+	                  		<p><% out.println(skills.get(i).getContent()); %></p>
+	                  		<hr/>
+	                  <% } %>
+					<% } %>
 				</div>
 			</div>
 		</div>
@@ -214,5 +209,5 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="../js/editableUserProfile.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/editableUserProfile.js"></script>
 </html>
