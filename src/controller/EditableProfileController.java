@@ -41,7 +41,7 @@ public class EditableProfileController extends HttpServlet {
 
 	private void updateLoggedUserInSession(HttpServletRequest request) {
 		loggedUser = (User) request.getSession().getAttribute("loggedUser");
-    	userDao.getUserByEmail(loggedUser.getEmail());
+		loggedUser = userDao.getUserByEmail(loggedUser.getEmail());
     	request.getSession().setAttribute("loggedUser", loggedUser);
 	}
 
