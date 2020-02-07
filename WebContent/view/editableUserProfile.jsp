@@ -120,7 +120,7 @@
 			<div class="profileProfessionalInfo">
 				<div class="profileProInfoDiv">
 					<h2 class="profileMarginText">Jobs</h2>
-					<% if(skills.size() != 0) { %>
+					<% if(skills != null && skills.size() != 0) { %>
 	                  <%for(int i=0; i < skills.size() ;i++) { %>
 	                  		<h4><% out.println(skills.get(i).getName()); %></h4>
 	                  		<h5><% out.println(skills.get(i).getPeriod()); %></h5>
