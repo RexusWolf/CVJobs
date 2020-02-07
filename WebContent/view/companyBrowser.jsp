@@ -35,7 +35,7 @@
         <a class="navbar-a" href="${pageContext.request.contextPath}/contacts">Contacts</a>
       </li>
       <li class="navbar-li">
-        <a class="active navbar-a" href="${pageContext.request.contextPath}/browser">Search</a>
+        <a class="active navbar-a" href="${pageContext.request.contextPath}/userBrowser">Search</a>
       </li>
     </ul>
     <header class="browser-search-header">
