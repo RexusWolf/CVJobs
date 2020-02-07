@@ -27,15 +27,6 @@ public class SkillController extends HttpServlet {
         skillDao = new SkillDao();
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("profileUser");
-		int userId = user.getId();
-    	ArrayList<Skill> skills = skillDao.listUserSkills(userId);
-    	System.out.println(userId);
-    	request.setAttribute("skills", skills);
-    	request.getRequestDispatcher("/view/userProfile.jsp").forward(request, response);
-    }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int userId = Integer.parseInt(request.getParameter("userId"));
         String name = request.getParameter("name");

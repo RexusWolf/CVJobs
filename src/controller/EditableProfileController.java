@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,13 +18,13 @@ public class EditableProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
     private UserDao userDao;
-    
+
     public void init() {
         userDao = new UserDao();
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	request.getRequestDispatcher("/view/userProfile.jsp").forward(request, response);
+    	request.getRequestDispatcher("/view/editableUserProfile.jsp").forward(request, response);
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
