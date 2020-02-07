@@ -35,6 +35,6 @@ public class EditBiographyController extends HttpServlet {
         }
 		HttpSession session = request.getSession();
 		session.setAttribute("loggedUser", user);
-		response.sendRedirect("view/userProfile.jsp");
+		response.sendRedirect("view/editableUserProfile.jsp");
 	}
 }

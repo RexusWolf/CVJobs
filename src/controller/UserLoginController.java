@@ -43,7 +43,7 @@ public class UserLoginController extends HttpServlet {
 		} else {
 			HttpSession session = request.getSession();
 			session.setAttribute("loggedUser", user);
-			response.sendRedirect("view/userProfile.jsp");
+			response.sendRedirect("view/editableUserProfile.jsp");
 		}
 	}
 }

@@ -45,7 +45,7 @@ public class UserRegisterController extends HttpServlet {
             userDao.registerUser(user);
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			response.sendRedirect("view/userProfile.jsp");
+			response.sendRedirect("view/editableUserProfile.jsp");
         } catch (Exception e) {
             e.printStackTrace();
         }

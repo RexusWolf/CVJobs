@@ -22,4 +22,7 @@ window.onclick = function(event) {
   if (event.target == profileInfoModal) {
 	  profileInfoModal.style.display = "none";
   }
-} 
+}
+
+var newField = '<span>Label: <input type="text"><small>(ft)</small></span>\r\n';
+document.getElementById('wrapper').innerHTML += newField;      
