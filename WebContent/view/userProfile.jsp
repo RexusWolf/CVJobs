@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CVJobs - Profile Page</title>
 <!-- CSS files -->
-<link href="../css/style.css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" />
 <!-- Google font file -->
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap"
@@ -33,7 +33,7 @@
 
 	<div class="profileRow">
 		<div class="profileBiographyColumn profileColumn leftProfileColumn">
-			<img class="avatarProfile" src="../img/img_avatar.png" />
+			<img class="avatarProfile" src="${pageContext.request.contextPath}/img/img_avatar.png" />
 
 			<h2 class="center">Biografía</h2>
 
@@ -58,13 +58,15 @@
 			</div>
 			<div class="profileProfessionalInfo">
 				<div class="profileProInfoDiv">
-					<% if(skills.size() != 0) { %>
-	                  <%for(int i=0; i < skills.size() ;i++) { %>
-	                  		<h4><% out.println(skills.get(i).getName()); %></h4>
-	                  		<h5><% out.println(skills.get(i).getPeriod()); %></h5>
-	                  		<p><% out.println(skills.get(i).getContent()); %></p>
-	                  		<hr/>
-	                  <% } %>
+					<% if(skills != null) {%>
+						<% if(skills.size() != 0) { %>
+		                  <%for(int i=0; i < skills.size() ;i++) { %>
+		                  		<h4><% out.println(skills.get(i).getName()); %></h4>
+		                  		<h5><% out.println(skills.get(i).getPeriod()); %></h5>
+		                  		<p><% out.println(skills.get(i).getContent()); %></p>
+		                  		<hr/>
+		                  <% } %>
+						<% } %>
 					<% } %>
 				</div>
 				<div class="profileProInfoDiv">

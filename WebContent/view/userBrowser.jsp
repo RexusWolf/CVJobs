@@ -73,7 +73,7 @@
 		      <div class="browser-card">
 			        <img class="browser-card-avatar" src="${pageContext.request.contextPath}/img/logo.png" alt="Avatar" />
 			        <div class="browser-container">
-			          <h4><b><%=users.get(i).getFirstName()%> <%=users.get(i).getLastName()%></b></h4>
+			          <a href="${pageContext.request.contextPath}/profile?user_id=<%=users.get(i).getId()%>"><h4><b><%=users.get(i).getFirstName()%> <%=users.get(i).getLastName()%></b></h4></a>
 			        </div>
 			      </div>
 				<%}%>

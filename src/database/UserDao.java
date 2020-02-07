@@ -76,6 +76,25 @@ public class UserDao {
 		return null;
 	}
 	
+	public User getUserById(int user_id) {
+		Connection connection;
+		Statement statement;
+		ResultSet resultset;
+		String query = String.format("SELECT * FROM users WHERE id = %d", user_id);
+
+		try {
+			connection = getConnection();
+			statement = connection.createStatement();
+			resultset = statement.executeQuery(query);
+			resultset.next();
+			return getUserFromResultSet(resultset);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
+
+		return null;
+	}
+	
 	public ArrayList<User> paginatedGetUserByName(String firstname, String lastname, int page) {
 		Connection connection;
 		Statement statement;
@@ -83,6 +102,7 @@ public class UserDao {
 		String conditions = "";
 		ArrayList<User> users = new ArrayList<User>();
 		
+		// This is not ok but we have a deadline and there is not time for refactoring helmet
 		if ((firstname != null) && (lastname != null)) {
 			conditions = String.format("WHERE firstname = '%s' AND lastname = '%s'", firstname, lastname);
 		} else if (firstname != null) {
@@ -90,6 +110,8 @@ public class UserDao {
 		} else if (lastname != null){
 			conditions = String.format("WHERE lastname = '%s'", lastname);
 		}
+		
+		
 		String paginatedQuery = String.format(
 				"SELECT  * FROM users %s LIMIT %d, %d", conditions, (PAGE_LIMIT*page), (PAGE_LIMIT*page) + PAGE_LIMIT);
 
@@ -108,6 +130,8 @@ public class UserDao {
 
 		return null;
 	}
+	
+	
 	
 	public ArrayList<User> paginatedUsers(int page) {
 		Connection connection;
